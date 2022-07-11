@@ -315,4 +315,25 @@ def data():
                 4. Keluar
     ''')
 
-    while True
+    while True:
+        pilih= input ('Masukkan pilihan : ')
+        if pilih == '1':
+            datauser()
+            break
+        else:
+            if pilih == '2':
+                databarang()
+                break
+            else:
+                if pilih == '3':
+                    datapeminjaman()
+                    break
+                else:
+                    if pilih == '4':
+                        menu()
+                        break
+                    else:
+                        print
+
+# login 
+
