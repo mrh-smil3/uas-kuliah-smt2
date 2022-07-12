@@ -81,14 +81,13 @@ def peminjaman():
             print('-----------------------------------------------------------')
             print('Tanggal. %s-%s-%s    %s:%s:%s'%(tanggal.day,tanggal.month,tanggal.year,waktu.hour,waktu.minute,waktu.second),'v.1.0')
             print('''
-            ---------------------------------------------------------
-                            JANGAN LUPA MENGEMBALIKAN          
-            ---------------------------------------------------------
+            ---------------------------------------------
+                     JANGAN LUPA MENGEMBALIKAN          
+            ---------------------------------------------
                 ''')
             break
         elif kode ==d_kode[kode]:
             barang=d_barang[d_kode[kode]]
-            d_barang2.append(barang)
             d_barang2.append(barang)
             print('==>',d_barang[kode])
         else:
