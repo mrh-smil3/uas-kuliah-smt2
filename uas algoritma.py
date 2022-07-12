@@ -1,10 +1,10 @@
-from ast import Break
-from cmath import pi
-from curses import KEY_OPEN
-from tkinter.tix import InputOnly
+# Nama  : Muhammad Arif Hidayanto
+# NIM   : 211240001205
+
+
 import datetime
 import time
-from typing import Tuple
+
 now = datetime.datetime.now()
 tanggal = now.date()
 waktu = now.time()
