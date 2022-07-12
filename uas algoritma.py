@@ -12,8 +12,8 @@ waktu = now.time()
 d_nomor = {'00001':'00001','00002':'00002','00003':'00003'}
 d_nama = {'00001':'anandito','00002':'bagas','00003':'zidan'}
 d_kode = {'01':'01','02':'02','03':'03'}
-d_barang = {'01':'Laptop','02':'mouse','03':'keyboard'}
-d_pinjam = {'anandito':'Laptop HP warna hitam','bagas':'mouse wireless','zidan':'keyboard mecanic'}
+d_barang = {'01':'Laptop','02':'Mouse','03':'Keyboard'}
+d_pinjam = {'anandito':'Laptop','bagas':'Mouse','zidan':'Keyboard'}
 
 d_barang2=[]
 i=0
@@ -34,7 +34,7 @@ def menu():
                         3. Keluar
     ''')
     while True:
-        pilih = input('Masukkan pilihan')
+        pilih = input('Masukkan pilihan : ')
         if pilih=='1':
             data()
             break
@@ -56,20 +56,21 @@ def peminjaman():
     ''')
     nip = input('Masukkan Nomor Induk Pegawai anda : ')
     print()
-    print('Nama ==>',d_nama[nomor])
+    print('Nama ==>',d_nama[nip])
     print()
     print('tekan q atau Q ketika sudah melakukan pinjaman')
     while True:
         kode = input('Masukkan kode barang : ')
         if kode == 'q' or kode == 'Q':
             print()
-            print('''--------------------------------------------
-                        |       Cetak Bukti Peminjaman      |   
-                        |             DIVISI IT             |
-                    --------------------------------------------
+            print('''
+            --------------------------------------------
+                |       Cetak Bukti Peminjaman      |      
+                |             DIVISI IT             |
+            --------------------------------------------
             ''')
-            print('Nama Peminjam : ',d_nama[nomor])
-            print('Buku yang dipinjam : ')
+            print('Nama Peminjam : ',d_nama[nip])
+            print('Barang yang dipinjam : ')
             for n in range(len(d_barang2)):
                 n+1
                 print('\t\t %s\t    \t\t'%(d_barang2[n]))
@@ -79,20 +80,21 @@ def peminjaman():
             print('Barang dikembalikan dalam waktu 12 hari setelah peminjam')
             print('-----------------------------------------------------------')
             print('Tanggal. %s-%s-%s    %s:%s:%s'%(tanggal.day,tanggal.month,tanggal.year,waktu.hour,waktu.minute,waktu.second),'v.1.0')
-            print('''-----------------------------------------------------------
-                                 TERIMAKASIH ATAS KUNJUNGAN ANDA             
-                    -----------------------------------------------------------
+            print('''
+            ---------------------------------------------------------
+                            JANGAN LUPA MENGEMBALIKAN          
+            ---------------------------------------------------------
                 ''')
             break
         elif kode ==d_kode[kode]:
-            buku=d_barang[d_kode[kode]]
+            barang=d_barang[d_kode[kode]]
             d_barang2.append(barang)
             d_barang2.append(barang)
-            print('==>',d_barang[kode]);
+            print('==>',d_barang[kode])
         else:
             print
     while True:
-        tanya = input('lagi? ==>')
+        tanya = input('lagi? y/t ==>')
         if tanya == 'y'or tanya =='Y':
             peminjaman()
             break
@@ -109,7 +111,7 @@ def daftar():
                 - DAFTAR ANGGOTA PEMINJAM BARANG -
             ___________________________________________
     ''')
-    print('Nomor dan nama anggota peminjam : ',d_nama)
+    print('NIP dan nama karyawan peminjam : ',d_nama)
     print('')
 
     while True:
@@ -125,18 +127,18 @@ def tambah():
                 - TAMBAH ANGGOTA PEMINJAM BARANG -
             ___________________________________________
     ''')
-    nomor= input ('Masukkan nomor anggota peminjam barang : ')
+    nomor= input ('Masukkan NIP karyawan : ')
     print('')
-    nama= input('Masukkan nama anggota peminjam barang : ')
+    nama = input ('Masukkan nama karyawan : ')
     print('')
     d_nomor[nomor]=nomor
     d_nama[nomor]=nama
     while True:
-        tanya = input('lagi? ==>')
+        tanya = input('lagi? y/t ==>')
         if tanya =='y' or tanya=='Y':
             tambah()
             break
-        else:
+        else: 
             if tanya =='t' or tanya=='T':
                 datauser()
                 break
@@ -149,18 +151,18 @@ def hapus():
                 - HAPUS ANGGOTA PEMINJAM -
             ___________________________________
     ''')
-    nomor= input ('Masukkan nomor anggota peminjam : ')
+    nomor= input ('Masukkan NIP Karyawan : ')
     print(' ==>',d_nama[nomor],'Telah dihapus')
     del d_nomor[nomor]
     del d_nama[nomor]
     print('')
     while True:
-        tanya = input('lagi? : ')
+        tanya = input('lagi? y/t : ')
         if tanya == 'y' or tanya == 'Y':
             hapus()
             break
         else:
-            if tanya == 'y' or tanya== 'Y':
+            if tanya == 't' or tanya== 'T':
                 datauser()
                 break
             else:
@@ -170,13 +172,13 @@ def datauser():
     print('''
                 - DATA PEMINJAM BARANG -
             _________________________________
-                1. Daftar anggota
-                2. Tambah anggota
-                3. Hapus anggota
+                1. Daftar Anggota
+                2. Tambah Anggota
+                3. Hapus Anggota
                 4. Kembali
         ''')
     while True:
-        pilih = input ('Masukklah Pilihan')
+        pilih = input ('Masukklah Pilihan : ')
         if pilih == '1':
             daftar()
             break
@@ -217,14 +219,14 @@ def tambahbarang():
                 - TAMBAH BARANG -
             ___________________________
     ''')
-    kode= input ('Masukkan kode buku : ')
+    kode= input ('Masukkan kode barang : ')
     print('')
-    barang= input('Masukkan nnama barang : ')
+    barang= input('Masukkan nama barang : ')
     print('')
     d_kode[kode]=kode
     d_barang[kode]=barang
     while True:
-        tanya = input('lagi? ==>')
+        tanya = input('lagi? y/t ==>')
         if tanya =='y' or tanya=='Y':
             tambahbarang()
             break
@@ -247,12 +249,12 @@ def hapusbarang():
     del d_barang[kode]
     print('')
     while True:
-        tanya = input('lagi? : ')
+        tanya = input('lagi? y/t : ')
         if tanya == 'y' or tanya == 'Y':
             hapusbarang()
             break
         else:
-            if tanya == 'y' or tanya== 'Y':
+            if tanya == 't' or tanya== 'T':
                 databarang()
                 break
             else:
@@ -268,7 +270,7 @@ def databarang():
                 4. Kembali
         ''')
     while True:
-        pilih = input ('Masukklah Pilihan')
+        pilih = input ('Masukklah Pilihan : ')
         if pilih == '1':
             daftarbarang()
             break
@@ -307,12 +309,49 @@ def datapeminjaman():
 def data():
     print(head)
     print('''
-                - DATA -
-            _____________________
-                1. Data User Peminjam
-                2. Data Barang
-                3. Data Peminjaman
-                4. Keluar
+                    - DATA -
+                ___________________________
+                    1. Data User Peminjam
+                    2. Data Barang
+                    3. Data Peminjaman
+                    4. Keluar
     ''')
 
-    while True
+    while True:
+        pilih= input ('Masukkan pilihan : ')
+        if pilih == '1':
+            datauser()
+            break
+        else:
+            if pilih == '2':
+                databarang()
+                break
+            else:
+                if pilih == '3':
+                    datapeminjaman()
+                    break
+                else:
+                    if pilih == '4':
+                        menu()
+                        break
+                    else:
+                        print
+
+# login aplikasi
+print(head)
+print('''
+                - LOGIN -
+        __________________________
+''')
+while True:
+    user = input ('Masukkan Username : ')
+    pas  = input ('Masukkan Password : ')
+    if user=='q' or user=='Q':
+        break
+    elif pas == 'admin' and user == 'admin':
+        menu()
+        break
+    else:
+        print('~ password anda tidak sesuai ~\n')
+    print
+
